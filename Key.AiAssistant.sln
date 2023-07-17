@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33627.172
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2486CFC4-9EA2-42BF-A95B-E32499D85543}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{95CFEC04-AC02-470C-8752-480942B2412B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{8FAA9A4F-9331-4635-8229-72049877CD99}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{A18A70AA-85A1-4E23-83B3-DA93A4DA887F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{70CAA103-A066-48F6-A966-B9C13C5CAE20}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{1DD700F6-9048-47DE-B045-BDCFEB2D4799}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Key.AiAssistant.Domain", "Key.AiAssistant.Domain\Key.AiAssistant.Domain.csproj", "{1C3E1054-AA2D-4EFA-A6BE-EF2588294991}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1C3E1054-AA2D-4EFA-A6BE-EF2588294991}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C3E1054-AA2D-4EFA-A6BE-EF2588294991}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C3E1054-AA2D-4EFA-A6BE-EF2588294991}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C3E1054-AA2D-4EFA-A6BE-EF2588294991}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{95CFEC04-AC02-470C-8752-480942B2412B} = {2486CFC4-9EA2-42BF-A95B-E32499D85543}
+		{8FAA9A4F-9331-4635-8229-72049877CD99} = {2486CFC4-9EA2-42BF-A95B-E32499D85543}
+		{A18A70AA-85A1-4E23-83B3-DA93A4DA887F} = {2486CFC4-9EA2-42BF-A95B-E32499D85543}
+		{70CAA103-A066-48F6-A966-B9C13C5CAE20} = {2486CFC4-9EA2-42BF-A95B-E32499D85543}
+		{1C3E1054-AA2D-4EFA-A6BE-EF2588294991} = {95CFEC04-AC02-470C-8752-480942B2412B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {990F2E24-3842-4B1D-82F2-22B604B08CB2}
+	EndGlobalSection
+EndGlobal
