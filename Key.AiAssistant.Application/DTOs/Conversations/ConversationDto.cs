@@ -1,4 +1,4 @@
-﻿namespace Key.AiAssistant.Application.DTOs
+﻿namespace Key.AiAssistant.Application.DTOs.Conversations
 {
     public class ConversationDto : DtoBase
     {

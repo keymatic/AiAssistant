@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using Key.AiAssistant.Application.DTOs;
+using Key.AiAssistant.Application.DTOs.Conversations;
+using Key.AiAssistant.Application.DTOs.Messages;
 using Key.AiAssistant.Domain;
 
 namespace Key.AiAssistant.Application.Configuration

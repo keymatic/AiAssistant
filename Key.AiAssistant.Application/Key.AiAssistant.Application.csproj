@@ -16,13 +16,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Prompts\Handlers\Commands\" />
+    <Folder Include="DTOs\Prompts\" />
+    <Folder Include="Features\Conversations\Requests\Commands\" />
     <Folder Include="Features\Messages\Handlers\Commands\" />
-    <Folder Include="Features\Messages\Handlers\Queries\" />
-    <Folder Include="Features\Messages\Requests\" />
     <Folder Include="Features\Conversations\Handlers\Commands\" />
-    <Folder Include="Features\Conversations\Handlers\Queries\" />
-    <Folder Include="Features\Conversations\Requests\" />
+    <Folder Include="Features\Messages\Requests\Commands\" />
+    <Folder Include="Features\Prompts\Handlers\Commands\" />
     <Folder Include="Features\Prompts\Requests\Commands\" />
   </ItemGroup>
 
