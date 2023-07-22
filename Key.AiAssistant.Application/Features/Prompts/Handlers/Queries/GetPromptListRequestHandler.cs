@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Key.AiAssistant.Application.Contracts.Persistence;
 using Key.AiAssistant.Application.DTOs;
+using Key.AiAssistant.Application.DTOs.Prompts;
 using Key.AiAssistant.Application.Features.Prompts.Requests.Queries;
 using MediatR;
 

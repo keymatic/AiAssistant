@@ -1,4 +1,6 @@
-﻿namespace Key.AiAssistant.Application.DTOs.Conversations
+﻿using Key.AiAssistant.Application.DTOs.Prompts;
+
+namespace Key.AiAssistant.Application.DTOs.Conversations
 {
     public class ConversationDto : DtoBase
     {

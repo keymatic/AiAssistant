@@ -19,8 +19,8 @@ namespace Key.AiAssistant.Application.Features.Conversations.Handlers.Queries
 
         public async Task<List<ConversationListDto>> Handle(GetConversationListRequest request, CancellationToken cancellationToken)
         {
-            var prompts = await _conversationRepository.GetAll();
-            return _mapper.Map<List<ConversationListDto>>(prompts);
+            var conversations = await _conversationRepository.GetAll();
+            return _mapper.Map<List<ConversationListDto>>(conversations);
         }
     }
 }

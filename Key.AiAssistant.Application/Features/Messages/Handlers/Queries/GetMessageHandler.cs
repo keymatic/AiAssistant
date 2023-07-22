@@ -11,16 +11,16 @@ namespace Key.AiAssistant.Application.Features.Messages.Handlers.Queries
         private readonly IMessageRepository _messageRepository;
         private readonly IMapper _mapper;
 
-        public GetMessageHandler(IMessageRepository conversationRepository, IMapper mapper)
+        public GetMessageHandler(IMessageRepository messageRepository, IMapper mapper)
         {
-            _messageRepository = conversationRepository;
+            _messageRepository = messageRepository;
             _mapper = mapper;
         }
 
         public async Task<MessageDto> Handle(GetMessageRequest request, CancellationToken cancellationToken)
         {
-            var prompt = await _messageRepository.GetWithDetail(request.Id);
-            return _mapper.Map<MessageDto>(prompt);
+            var message = await _messageRepository.GetWithDetail(request.Id);
+            return _mapper.Map<MessageDto>(message);
         }
     }
 }

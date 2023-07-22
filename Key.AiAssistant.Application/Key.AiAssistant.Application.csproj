@@ -15,14 +15,4 @@
     <ProjectReference Include="..\Key.AiAssistant.Domain\Key.AiAssistant.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="DTOs\Prompts\" />
-    <Folder Include="Features\Conversations\Requests\Commands\" />
-    <Folder Include="Features\Messages\Handlers\Commands\" />
-    <Folder Include="Features\Conversations\Handlers\Commands\" />
-    <Folder Include="Features\Messages\Requests\Commands\" />
-    <Folder Include="Features\Prompts\Handlers\Commands\" />
-    <Folder Include="Features\Prompts\Requests\Commands\" />
-  </ItemGroup>
-
 </Project>

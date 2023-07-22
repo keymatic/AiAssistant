@@ -19,8 +19,8 @@ namespace Key.AiAssistant.Application.Features.Messages.Handlers.Queries
 
         public async Task<List<MessageDto>> Handle(GetMessageListRequest request, CancellationToken cancellationToken)
         {
-            var prompts = await _messageRepository.GetAll();
-            return _mapper.Map<List<MessageDto>>(prompts);
+            var messages = await _messageRepository.GetAll();
+            return _mapper.Map<List<MessageDto>>(messages);
         }
     }
 }
