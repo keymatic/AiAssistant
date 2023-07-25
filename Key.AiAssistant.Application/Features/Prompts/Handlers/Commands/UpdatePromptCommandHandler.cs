@@ -1,7 +1,8 @@
 ﻿using AutoMapper;
 using Key.AiAssistant.Application.Contracts.Persistence;
+using Key.AiAssistant.Application.DTOs.Prompts.Validators;
+using Key.AiAssistant.Application.Exceptions;
 using Key.AiAssistant.Application.Features.Prompts.Requests.Commands;
-using Key.AiAssistant.Domain;
 using MediatR;
 
 namespace Key.AiAssistant.Application.Features.Prompts.Handlers.Commands
@@ -19,6 +20,11 @@ namespace Key.AiAssistant.Application.Features.Prompts.Handlers.Commands
 
         public async Task<Unit> Handle(UpdatePromptCommand request, CancellationToken cancellationToken)
         {
+            var validator = new UpdatePromptDtoValidator();
+            var validationResult = await validator.ValidateAsync(request.PromptDto, cancellationToken);
+            if (!validationResult.IsValid)
+                throw new ModelValidationException(validationResult);
+
             var prompt = await _promptRepository.Get(request.PromptDto.Id);
 
             _mapper.Map(request.PromptDto, prompt);
