@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Key.AiAssistant.Application
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Key.AiAssistant.Store", "Key.AiAssistant.Store\Key.AiAssistant.Store.csproj", "{23519179-9354-4E9F-8A1A-EDC60D67004E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Key.AiAssistant.ChatGPT", "Key.AiAssistant.OpenAI\Key.AiAssistant.ChatGPT.csproj", "{038D13A8-47C8-4100-957B-27BF65094215}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{23519179-9354-4E9F-8A1A-EDC60D67004E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23519179-9354-4E9F-8A1A-EDC60D67004E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23519179-9354-4E9F-8A1A-EDC60D67004E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{038D13A8-47C8-4100-957B-27BF65094215}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{038D13A8-47C8-4100-957B-27BF65094215}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{038D13A8-47C8-4100-957B-27BF65094215}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{038D13A8-47C8-4100-957B-27BF65094215}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,6 +57,7 @@ Global
 		{1C3E1054-AA2D-4EFA-A6BE-EF2588294991} = {95CFEC04-AC02-470C-8752-480942B2412B}
 		{91231C7B-50FD-4B18-8292-C2036EFCA0B5} = {95CFEC04-AC02-470C-8752-480942B2412B}
 		{23519179-9354-4E9F-8A1A-EDC60D67004E} = {8FAA9A4F-9331-4635-8229-72049877CD99}
+		{038D13A8-47C8-4100-957B-27BF65094215} = {8FAA9A4F-9331-4635-8229-72049877CD99}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {990F2E24-3842-4B1D-82F2-22B604B08CB2}

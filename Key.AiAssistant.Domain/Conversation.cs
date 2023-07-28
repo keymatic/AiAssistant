@@ -6,6 +6,7 @@ namespace Key.AiAssistant.Domain
     {
         public string Title { get; set; }
         public Prompt Prompt { get; set; }
-        public int PromptId { get; set; }
+        public int? PromptId { get; set; }
+        public List<Message> Messages { get; set; } = new();
     }
 }
