@@ -1,4 +1,5 @@
 ﻿using Key.AiAssistant.Application.Contracts.ChatBot;
+using Key.AiAssistant.ChatGPT.Configuration;
 using Key.AiAssistant.Domain;
 using Microsoft.Extensions.Options;
 using OpenAI_API;

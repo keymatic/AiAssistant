@@ -1,4 +1,4 @@
-﻿namespace Key.AiAssistant.ChatGPT
+﻿namespace Key.AiAssistant.ChatGPT.Configuration
 {
     public class ChatGptSettings
     {

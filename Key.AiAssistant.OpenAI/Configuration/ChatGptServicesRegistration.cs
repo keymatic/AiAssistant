@@ -2,11 +2,11 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Key.AiAssistant.ChatGPT
+namespace Key.AiAssistant.ChatGPT.Configuration
 {
     public static class ChatGptServicesRegistration
     {
-        public static IServiceCollection ConfigureInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection ConfigureChatGptServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.Configure<ChatGptSettings>(configuration.GetSection("ChatGptSettings"));
             services.AddTransient<IChatBotClient, ChatGptClient>();
