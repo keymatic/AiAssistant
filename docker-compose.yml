@@ -1,0 +1,23 @@
+version: '3.4'
+
+services:
+  key.aiassistant.api:
+    ports:
+        - "8000:80"
+        - "8443:443"
+    image: ${DOCKER_REGISTRY-}keyaiassistantapi
+    build:
+      context: .
+      dockerfile: Key.AiAssistant.API/Dockerfile
+    depends_on:
+      - database
+  
+  database:
+    image: "postgres"
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_NAME=keyAiAssistant
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=mysuperpassword

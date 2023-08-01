@@ -16,12 +16,14 @@ namespace Key.AiAssistant.Store.Repositories
         public async Task<T> Add(T entity)
         {
             await DbContext.AddAsync(entity);
+            await DbContext.SaveChangesAsync();
             return entity;
         }
 
         public async Task Delete(T entity)
         {
             DbContext.Set<T>().Remove(entity);
+            await DbContext.SaveChangesAsync();
         }
 
         public async Task<bool> Exists(int id)
@@ -42,8 +44,7 @@ namespace Key.AiAssistant.Store.Repositories
         public async Task Update(T entity)
         {
             DbContext.Entry(entity).State = EntityState.Modified;
+            await DbContext.SaveChangesAsync();
         }
-
-        
     }
 }

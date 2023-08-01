@@ -20,6 +20,8 @@ builder.Services.AddCors(t => t.AddPolicy("CorsPolicy", p =>
         .AllowAnyHeader()
 ));
 
+builder.Services.InitializeDatabase();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -21,9 +21,13 @@ namespace Key.AiAssistant.Store
             foreach (var entry in ChangeTracker.Entries<EntityBase>())
             {
                 entry.Entity.UpdatedDate = DateTimeOffset.UtcNow;
+                entry.Entity.UpdatedBy = "system";
 
                 if (entry.State == EntityState.Added)
+                {
                     entry.Entity.CreatedDate = DateTimeOffset.UtcNow;
+                    entry.Entity.CreatedBy = "system";
+                }
             }
 
             return base.SaveChangesAsync(cancellationToken);

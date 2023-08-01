@@ -8,10 +8,6 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
 COPY ["Key.AiAssistant.API/Key.AiAssistant.API.csproj", "Key.AiAssistant.API/"]
-COPY ["Key.AiAssistant.Application/Key.AiAssistant.Application.csproj", "Key.AiAssistant.Application/"]
-COPY ["Key.AiAssistant.Domain/Key.AiAssistant.Domain.csproj", "Key.AiAssistant.Domain/"]
-COPY ["Key.AiAssistant.OpenAI/Key.AiAssistant.ChatGPT.csproj", "Key.AiAssistant.OpenAI/"]
-COPY ["Key.AiAssistant.Store/Key.AiAssistant.Store.csproj", "Key.AiAssistant.Store/"]
 RUN dotnet restore "Key.AiAssistant.API/Key.AiAssistant.API.csproj"
 COPY . .
 WORKDIR "/src/Key.AiAssistant.API"
