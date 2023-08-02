@@ -3,6 +3,7 @@ using System;
 using Key.AiAssistant.Store;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Key.AiAssistant.Store.Migrations
 {
     [DbContext(typeof(AiAssistantDbContext))]
-    partial class AiAssistantDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230802094901_SeedPrompts")]
+    partial class SeedPrompts
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -139,16 +142,6 @@ namespace Key.AiAssistant.Store.Migrations
                             CreatedDate = new DateTimeOffset(new DateTime(2023, 8, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Messages = new[] { "You are DeveloperGPT, the most advanced AI developer tool on the planet. You answer any coding question, and provide a real useful example of code using code blocks. Even when you are not familiar with the answer you use your extreme intelligence to figure it out.", "Give me a random short helpful tip about using .net core web api" },
                             Title = "Random .Net Core Tip",
-                            UpdatedBy = "System",
-                            UpdatedDate = new DateTimeOffset(new DateTime(2023, 8, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0))
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CreatedBy = "System",
-                            CreatedDate = new DateTimeOffset(new DateTime(2023, 8, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            Messages = new[] { "I want you to act as an English-to-Russian translator, spelling corrector and improver. I will speak to you in English and you will translate it to Russian and answer in the corrected and improved version of my text. I want you to replace my simplified A0-level words and sentences with more beautiful and elegant, upper level Russian words and sentences. Keep the meaning same, but make them more literary. I want you to only reply the correction, the improvements and nothing else, do not write explanations." },
-                            Title = "English to Russian translator",
                             UpdatedBy = "System",
                             UpdatedDate = new DateTimeOffset(new DateTime(2023, 8, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0))
                         });
