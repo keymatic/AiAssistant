@@ -19,7 +19,7 @@ namespace Key.AiAssistant.Application.Features.Messages.Handlers.Queries
 
         public async Task<List<MessageDto>> Handle(GetMessageListRequest request, CancellationToken cancellationToken)
         {
-            var messages = await _messageRepository.GetAll();
+            var messages = await _messageRepository.GetAll(request.ConversationId);
             return _mapper.Map<List<MessageDto>>(messages);
         }
     }

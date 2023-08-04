@@ -4,5 +4,6 @@
     {
         public string Text { get; set; }
         public bool FromAi { get; set; }
+        public int ConversationId { get; set; }
     }
 }
