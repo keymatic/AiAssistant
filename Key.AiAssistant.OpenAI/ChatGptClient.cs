@@ -3,6 +3,7 @@ using Key.AiAssistant.ChatGPT.Configuration;
 using Key.AiAssistant.Domain;
 using Microsoft.Extensions.Options;
 using OpenAI_API;
+using OpenAI_API.Models;
 
 namespace Key.AiAssistant.ChatGPT
 {
@@ -20,10 +21,13 @@ namespace Key.AiAssistant.ChatGPT
             var result = prompts.Select(s => new Message { Text = s }).ToList();
             
             var api = new OpenAIAPI(new APIAuthentication(_settings.ApiKey));
-            
-            var completionResult = await api.Completions.CreateCompletionAsync(prompts);
-            result.Add(new Message{Text = completionResult.Completions[0].Text.Trim(), FromAi = true});
-            
+            api.Completions.DefaultCompletionRequestArgs.MaxTokens = 1000;
+            api.Completions.DefaultCompletionRequestArgs.Model = Model.GPT4;
+
+            var completionResult = await api.Chat.CreateChatCompletionAsync(prompts);
+            result.AddRange(completionResult.Choices.Select(choice => new Message
+                { Text = choice.Message.Content, FromAi = true }));
+
             return result;
         }
 
@@ -44,10 +48,18 @@ namespace Key.AiAssistant.ChatGPT
             return conversation;
         }
 
+        public async Task<Conversation> SendAsync(string[] promptMessages, CancellationToken cancellationToken = default)
+        {
+            var response = await GetResponse(promptMessages);
+            return new Conversation
+            {
+                Messages = response
+            };
+        }
+
         private string BuildConversationTitle(string vacancy)
         {
-            var title = vacancy.Substring(0, 47);
-            return title.Length < 47 ? title : title + "...";
+            return vacancy.Length < 50 ? vacancy : vacancy.Substring(0, 47) + "...";
         }
     }
 }

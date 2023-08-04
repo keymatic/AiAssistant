@@ -10,11 +10,16 @@ namespace Key.AiAssistant.Store.Repositories
         {
         }
 
-        public async Task<Message?> GetWithDetail(int id)
+        public async Task<Message?> GetWithDetail(int conversationId, int id)
         {
             return await DbContext.Messages
                 .Include(t => t.Conversation)
-                .FirstOrDefaultAsync(t => t.Id == id);
+                .FirstOrDefaultAsync(t => t.Id == id && t.ConversationId == conversationId);
+        }
+
+        public async Task<List<Message>> GetAll(int conversationId)
+        {
+            return await DbContext.Messages.Where(t => t.ConversationId == conversationId).ToListAsync();
         }
     }
 }
