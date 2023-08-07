@@ -48,6 +48,20 @@ namespace Key.AiAssistant.API.Controllers
             });
         }
 
+        // POST api/Conversations/optimize-resume
+        [HttpPost("optimize-resume")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        public async Task<ActionResult<ConversationDto>> Post([FromBody] OptimizeResumeChatDto dto)
+        {
+            var command = new OptimizeResumeCommand { OptimizeResumeChatDto = dto };
+            var response = await _mediator.Send(command);
+            return Ok(new
+            {
+                Id = response
+            });
+        }
+
         // PUT api/Conversations/5
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]

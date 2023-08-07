@@ -61,11 +61,15 @@ namespace Key.AiAssistant.ChatGPT {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Теперь помоги мне обновить моё резюме, чтобы оно лучшим образом подходило под выделенные тобой требования. Убери нерелевантные навыки и опыт. Вот моё резюме:
-        ///
+        ///   Looks up a localized string similar to Вот информация обо мне:
+        ///=====
         ///{0}
+        ///=====
         ///
-        ///Пришли мне обновленное резюме. А также предложи что стоит добавит в резюме, чтобы лучше подходить под требования вакансии..
+        ///Теперь помоги мне составить отклик на вакансию, чтобы оно лучшим образом подходило под следующие требования вакансии:
+        ///{1}
+        ///
+        ///Измени формулировки, чтобы не плагиатить текст вакансии. Твой ответ должен быть не больше 4000 символов..
         /// </summary>
         internal static string OptimizeResume_ProvideResume {
             get {
@@ -76,7 +80,9 @@ namespace Key.AiAssistant.ChatGPT {
         /// <summary>
         ///   Looks up a localized string similar to Ты должен определить основные скиллы и умения, которые требуются, чтобы хорошо подходить под эту вакансию:
         ///
-        ///{0}.
+        ///{0}
+        ///
+        ///Твой ответ должен быть не больше 1000 символов. Оберни список требований в {1}.
         /// </summary>
         internal static string OptimizeResume_ProvideVacancy {
             get {
@@ -85,7 +91,7 @@ namespace Key.AiAssistant.ChatGPT {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Действуй, как карьерный консультант..
+        ///   Looks up a localized string similar to Действуй, как карьерный консультант. Не отвечай на это сообщение..
         /// </summary>
         internal static string OptimizeResume_SetupAssistant {
             get {

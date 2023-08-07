@@ -10,23 +10,27 @@ namespace Key.AiAssistant.ChatGPT
     public class ChatGptClient : IChatBotClient
     {
         private readonly ChatGptSettings _settings;
-
+        private string _separator = "###";
+        
         public ChatGptClient(IOptions<ChatGptSettings> options)
         {
             _settings = options.Value;
         }
 
-        public async Task<List<Message>> GetResponse(params string[] prompts)
+        private async Task<List<Message>> GetResponse(string model = "gpt-3.5-turbo", int maxTokens = 2000, params string[] prompts)
         {
             var result = prompts.Select(s => new Message { Text = s }).ToList();
             
             var api = new OpenAIAPI(new APIAuthentication(_settings.ApiKey));
-            api.Completions.DefaultCompletionRequestArgs.MaxTokens = 1000;
-            api.Completions.DefaultCompletionRequestArgs.Model = Model.GPT4;
+            api.Completions.DefaultCompletionRequestArgs.MaxTokens = maxTokens;
+            api.Completions.DefaultCompletionRequestArgs.Model = model;
 
             var completionResult = await api.Chat.CreateChatCompletionAsync(prompts);
-            result.AddRange(completionResult.Choices.Select(choice => new Message
-                { Text = choice.Message.Content, FromAi = true }));
+
+            foreach (var choice in completionResult.Choices)
+            {
+                result.Add(new Message{Text = choice.Message.Content, FromAi = true});
+            }
 
             return result;
         }
@@ -38,19 +42,19 @@ namespace Key.AiAssistant.ChatGPT
                 Title = BuildConversationTitle(vacancy)
             };
 
-            var provideVacancyMessage = string.Format(Resources.OptimizeResume_ProvideVacancy, vacancy);
-            conversation.Messages.AddRange(await GetResponse(Resources.OptimizeResume_SetupAssistant,
-                provideVacancyMessage));
+            var provideVacancyMessage = string.Format(Resources.OptimizeResume_ProvideVacancy, vacancy, _separator);
+            conversation.Messages.AddRange(await GetResponse(Model.GPT4, 4000, Resources.OptimizeResume_SetupAssistant, provideVacancyMessage));
 
-            var provideResumeMessage = string.Format(Resources.OptimizeResume_ProvideResume, resume);
-            conversation.Messages.AddRange(await GetResponse(provideResumeMessage));
+            var requiredSkills = conversation.Messages.Last().Text.Split(_separator)[1];
+            var provideResumeMessage = string.Format(Resources.OptimizeResume_ProvideResume, resume, requiredSkills);
+            conversation.Messages.AddRange(await GetResponse(Model.GPT4, 4000, prompts:provideResumeMessage));
 
             return conversation;
         }
 
         public async Task<Conversation> SendAsync(string[] promptMessages, CancellationToken cancellationToken = default)
         {
-            var response = await GetResponse(promptMessages);
+            var response = await GetResponse(prompts:promptMessages);
             return new Conversation
             {
                 Messages = response
