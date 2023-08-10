@@ -27,6 +27,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Key.AiAssistant.API", "Key.
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{919CF88B-36E3-49C7-8E25-5E2B4FFBAA81}"
 EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "key.aiassistant.nuxt", "key.aiassistant.nuxt\key.aiassistant.nuxt.esproj", "{FC89CD24-1E9B-49D6-9C60-AEE962E26FA8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,12 @@ Global
 		{919CF88B-36E3-49C7-8E25-5E2B4FFBAA81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{919CF88B-36E3-49C7-8E25-5E2B4FFBAA81}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{919CF88B-36E3-49C7-8E25-5E2B4FFBAA81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC89CD24-1E9B-49D6-9C60-AEE962E26FA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC89CD24-1E9B-49D6-9C60-AEE962E26FA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC89CD24-1E9B-49D6-9C60-AEE962E26FA8}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{FC89CD24-1E9B-49D6-9C60-AEE962E26FA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC89CD24-1E9B-49D6-9C60-AEE962E26FA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC89CD24-1E9B-49D6-9C60-AEE962E26FA8}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -71,6 +79,7 @@ Global
 		{23519179-9354-4E9F-8A1A-EDC60D67004E} = {8FAA9A4F-9331-4635-8229-72049877CD99}
 		{038D13A8-47C8-4100-957B-27BF65094215} = {8FAA9A4F-9331-4635-8229-72049877CD99}
 		{21FE9F99-9375-4A29-9939-D25C8C8BC60C} = {A18A70AA-85A1-4E23-83B3-DA93A4DA887F}
+		{FC89CD24-1E9B-49D6-9C60-AEE962E26FA8} = {70CAA103-A066-48F6-A966-B9C13C5CAE20}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {990F2E24-3842-4B1D-82F2-22B604B08CB2}
