@@ -1,25 +1,45 @@
 <template>
   <v-row>
-    <v-col class="text-center">
-      <img
-        src="/v.png"
-        alt="Vuetify.js"
-        class="mb-5"
-      >
-      <blockquote class="blockquote">
-        &#8220;First, solve the problem. Then, write the code.&#8221;
-        <footer>
-          <small>
-            <em>&mdash;John Johnson</em>
-          </small>
-        </footer>
-      </blockquote>
+    <v-col>
+        <ConversationListItem v-for="item in conversations" :key="item.id"
+                                 :id="item.id"
+                                 :title="item.title"
+                                 :updatedDate="item.updatedDate"
+                                 :prompt="item.prompt"></ConversationListItem>
     </v-col>
   </v-row>
 </template>
 
 <script>
+import ConversationListItem from "@/components/conversations/ConversationListItem.vue"
 export default {
-  name: 'InspirePage'
+  name: 'ConversationsPage',
+  components: {
+      ConversationListItem
+  },
+  data() {
+    return {
+      conversations: [
+        {
+          id: 1,
+          title: "Saturday tip of the day",
+          updatedDate: '08/12/2023 3:57PM',
+          prompt: "C# tip of the day"
+        },
+        {
+          id: 2,
+          title: "Friday tip of the day",
+          updatedDate: '08/12/2023 3:57PM',
+          prompt: "C# tip of the day"
+        },
+        {
+          id: 3,
+          title: "Thursday tip of the day",
+          updatedDate: '08/12/2023 3:57PM',
+          prompt: "C# tip of the day"
+        }
+      ]
+    }
+  }
 }
 </script>
