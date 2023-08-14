@@ -16,5 +16,12 @@ namespace Key.AiAssistant.Store.Repositories
                 .Include(t => t.Prompt)
                 .FirstOrDefaultAsync(t => t.Id == id);
         }
+
+        public async Task<IReadOnlyList<Conversation>> GetAllWithDetail()
+        {
+            return await DbContext.Conversations
+                .Include(t => t.Prompt)
+                .ToListAsync();
+        }
     }
 }

@@ -5,41 +5,33 @@
                                  :id="item.id"
                                  :title="item.title"
                                  :updatedDate="item.updatedDate"
-                                 :prompt="item.prompt"></ConversationListItem>
+                                 :prompt="item.promptName"></ConversationListItem>
     </v-col>
   </v-row>
 </template>
 
 <script>
-import ConversationListItem from "@/components/conversations/ConversationListItem.vue"
+import ConversationListItem from "@/components/conversations/ConversationListItem.vue";
+
 export default {
   name: 'ConversationsPage',
   components: {
       ConversationListItem
   },
-  data() {
-    return {
-      conversations: [
-        {
-          id: 1,
-          title: "Saturday tip of the day",
-          updatedDate: '08/12/2023 3:57PM',
-          prompt: "C# tip of the day"
-        },
-        {
-          id: 2,
-          title: "Friday tip of the day",
-          updatedDate: '08/12/2023 3:57PM',
-          prompt: "C# tip of the day"
-        },
-        {
-          id: 3,
-          title: "Thursday tip of the day",
-          updatedDate: '08/12/2023 3:57PM',
-          prompt: "C# tip of the day"
-        }
-      ]
+  asyncData(context) {
+    return context.app.$axios.$get('api/Conversations')
+        .then(response => {
+          return {
+            conversations: response.map(c => {
+              return {
+                id: c.id,
+                title: c.title,
+                updatedDate: new Date(c.updatedDate),
+                promptName: c.promptName
+              };
+            })
+          }
+        });
     }
   }
-}
 </script>

@@ -32,6 +32,7 @@ namespace Key.AiAssistant.Application.Features.Conversations.Handlers.Commands
 
             var conversation = await _chatBotClient.SendAsync(prompt.Messages, cancellationToken);
             conversation.Title = command.ConversationDto.Title;
+            conversation.PromptId = command.ConversationDto.PromptId;
             conversation = await _conversationRepository.Add(conversation);
             return conversation.Id;
         }

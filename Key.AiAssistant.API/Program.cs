@@ -9,16 +9,16 @@ builder.Services.ConfigureApplicationServices();
 builder.Services.ConfigureStoreServices(builder.Configuration);
 builder.Services.ConfigureChatGptServices(builder.Configuration);
 
-builder.Services.AddControllers().AddNewtonsoftJson();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
 builder.Services.AddCors(t => t.AddPolicy("CorsPolicy", p =>
     p.AllowAnyOrigin()
         .AllowAnyMethod()
         .AllowAnyHeader()
 ));
+
+builder.Services.AddControllers().AddNewtonsoftJson();
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 builder.Services.InitializeDatabase();
 
@@ -32,6 +32,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("CorsPolicy");
 
 app.UseAuthorization();
 

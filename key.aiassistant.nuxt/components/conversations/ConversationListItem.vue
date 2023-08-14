@@ -3,7 +3,7 @@
     <v-card class="mx-auto" width="400" variant="tonal">
       <v-card-text>
         <div class="text-h6">{{title}}</div>
-        <div class="text-caption">{{updatedDate}}</div>
+        <div class="text-caption">{{updatedDate.toLocaleString()}}</div>
         <div class="text--primary">Prompt: {{prompt}}</div>
       </v-card-text>
     </v-card>
@@ -22,7 +22,7 @@
         required: true
       },
       updatedDate: {
-        type: String,
+        type: Date,
         required: true
       },
       prompt: {

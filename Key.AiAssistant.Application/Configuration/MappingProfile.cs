@@ -15,7 +15,8 @@ namespace Key.AiAssistant.Application.Configuration
             CreateMap<Prompt, CreatePromptDto>().ReverseMap();
             CreateMap<Conversation, ConversationDto>().ReverseMap();
             CreateMap<Conversation, CreateConversationDto>().ReverseMap();
-            CreateMap<Conversation, ConversationListDto>().ReverseMap();
+            CreateMap<Conversation, ConversationListDto>()
+                .ForMember(dest => dest.PromptName, e => e.MapFrom(s => s.Prompt == null ? null : s.Prompt.Title));
             CreateMap<Message, MessageDto>().ReverseMap();
             CreateMap<Message, CreateMessageDto>().ReverseMap();
         }
