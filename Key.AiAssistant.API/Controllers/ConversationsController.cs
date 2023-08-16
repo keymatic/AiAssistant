@@ -67,9 +67,10 @@ namespace Key.AiAssistant.API.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
-        public async Task<ActionResult> Put([FromBody] UpdateConversationDto conversation)
+        public async Task<ActionResult> Put([FromBody] UpdateConversationDto conversation, int id)
         {
             var command = new UpdateConversationCommand { UpdateConversationDto = conversation };
+            command.UpdateConversationDto.Id = id;
             await _mediator.Send(command);
             return NoContent();
         }

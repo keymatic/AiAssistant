@@ -1,11 +1,25 @@
 <template>
   <v-row>
     <v-col>
-        <ConversationListItem v-for="item in conversations" :key="item.id"
-                                 :id="item.id"
-                                 :title="item.title"
-                                 :updatedDate="item.updatedDate"
-                                 :prompt="item.promptName"></ConversationListItem>
+      <v-row>
+        <v-col>
+          <NuxtLink to="/conversations/new">
+            <v-btn variant="tonal">
+              <v-icon>mdi-plus</v-icon>
+              Start new conversation
+            </v-btn>
+          </NuxtLink>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col>
+          <ConversationListItem v-for="item in conversations" :key="item.id"
+                                :id="item.id"
+                                :title="item.title"
+                                :updatedDate="item.updatedDate"
+                                :prompt="item.promptName"></ConversationListItem>
+        </v-col>
+      </v-row>
     </v-col>
   </v-row>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="`${id}`">
+  <nuxt-link :to="`/conversations/${id}`">
     <v-card class="mx-auto" width="400" variant="tonal">
       <v-card-text>
         <div class="text-h6">{{title}}</div>
