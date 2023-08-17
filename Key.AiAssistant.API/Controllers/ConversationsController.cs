@@ -1,3 +1,4 @@
+using Key.AiAssistant.API.ApiModels;
 using Key.AiAssistant.Application.DTOs.Conversations;
 using Key.AiAssistant.Application.Features.Conversations.Requests.Commands;
 using Key.AiAssistant.Application.Features.Conversations.Requests.Queries;
@@ -67,9 +68,16 @@ namespace Key.AiAssistant.API.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
-        public async Task<ActionResult> Put([FromBody] UpdateConversationDto conversation)
+        public async Task<ActionResult> Put([FromBody] UpdateConversationApiModel conversation, int id)
         {
-            var command = new UpdateConversationCommand { UpdateConversationDto = conversation };
+            var command = new UpdateConversationCommand
+            {
+                UpdateConversationDto = new UpdateConversationDto
+                {
+                    Id = id,
+                    Title = conversation.Title,
+                }
+            };
             await _mediator.Send(command);
             return NoContent();
         }
