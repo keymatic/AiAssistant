@@ -7,6 +7,17 @@
                       :readonly="loading"
                       label="Title"></v-text-field>
 
+        <v-select v-model="conversation.prompt"
+                  v-if="!id"
+                  :items="promptItems"
+                  :readonly="loading"
+                  item-value="id"
+                  item-text="title"
+                  label="Prompt"
+                  clearable
+                  return-object
+                  single-line></v-select>
+
         <div class="d-flex flex-column">
           <v-btn color="success"
                  class="mt-4"
@@ -34,6 +45,10 @@
       prompt: {
         type: Object,
         required: false
+      },
+      prompts:{
+        type: Array,
+        required: false
       }
     },
     data() {
@@ -52,14 +67,16 @@
       },
       async submitForm(){
         const valid = await this.$refs.form.validate();
-        console.log("valid:", valid);
 
         if (!valid)
           return;
 
         try {
           this.loading = true;
-          await this.update();
+          if (this.id)
+            await this.update();
+          else
+            await this.add();
         } catch (e) {
           console.error(e);
         }
@@ -67,19 +84,30 @@
           this.loading = false;
         }
       },
+      async add(){
+        var payload = {
+          title: this.conversation.title,
+          promptId: this.conversation.prompt?.id
+        };
+        console.log("payload:", this.payload);
+        await this.$axios.post('api/Conversations', payload)
+          .then((res) => {
+              this.$router.push("/conversations");
+          })
+          .catch((error) => {
+              console.error('error:', error);
+          });
+      },
       async update(){
         var payload = {
           title: this.conversation.title
         };
-        console.log("payload:", this.payload);
-
         await this.$axios.put('api/Conversations/' + this.id, payload)
           .then((res) => {
-              console.log('success:', res);
               this.$router.push("/conversations");
           })
           .catch((error) => {
-              console.log('error:', error);
+              console.error('error:', error);
           });
       }
 

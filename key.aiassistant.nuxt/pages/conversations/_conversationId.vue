@@ -2,7 +2,8 @@
   <EditConversation 
       :id="conversation.id"
       :title="conversation.title"
-      :prompt="conversation.prompt"></EditConversation>
+      :prompt="conversation.prompt"
+      :prompts="prompts"></EditConversation>
 </template>
 
 <script>
@@ -16,6 +17,7 @@ export default {
   data() {
     return {
       conversation: {},
+      prompts:[],
     }
   },
   computed:{
@@ -25,6 +27,7 @@ export default {
   },
   async asyncData(context) {
     const conversation = await context.app.$axios.$get('api/Conversations/'+context.params.conversationId);
+    const prompts = await context.app.$axios.$get('api/Prompts');
     return {
       conversation: {
         id: conversation.id,
@@ -33,6 +36,7 @@ export default {
         prompt: conversation.prompt,
 
       },
+      prompts: prompts
     };
   }
 }
