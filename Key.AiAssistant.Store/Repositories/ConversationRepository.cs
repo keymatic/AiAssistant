@@ -21,6 +21,7 @@ namespace Key.AiAssistant.Store.Repositories
         {
             return await DbContext.Conversations
                 .Include(t => t.Prompt)
+                .OrderByDescending(t => t.UpdatedDate)
                 .ToListAsync();
         }
     }

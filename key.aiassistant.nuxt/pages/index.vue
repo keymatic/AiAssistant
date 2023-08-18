@@ -17,7 +17,7 @@
           <v-btn
             color="primary"
             nuxt
-            to="/inspire"
+            to="/conversations"
           >
             Continue
           </v-btn>

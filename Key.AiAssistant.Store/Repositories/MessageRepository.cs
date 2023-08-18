@@ -19,7 +19,10 @@ namespace Key.AiAssistant.Store.Repositories
 
         public async Task<List<Message>> GetAll(int conversationId)
         {
-            return await DbContext.Messages.Where(t => t.ConversationId == conversationId).ToListAsync();
+            return await DbContext.Messages
+                .Where(t => t.ConversationId == conversationId)
+                .OrderByDescending(t => t.CreatedDate)
+                .ToListAsync();
         }
     }
 }

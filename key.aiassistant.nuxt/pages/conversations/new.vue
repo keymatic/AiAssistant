@@ -1,25 +1,25 @@
 <template>
-  <EditConversation :prompts="prompts"></EditConversation>
+  <EditConversation :prompts="prompts" />
 </template>
 
 <script>
-import EditConversation from "@/components/conversations/EditConversation.vue";
+import EditConversation from '@/components/conversations/EditConversation.vue'
 
 export default {
   name: 'ConversationPage',
   components: {
-      EditConversation
+    EditConversation
   },
-  data() {
+  async asyncData (context) {
+    const prompts = await context.app.$axios.$get('api/Prompts')
     return {
-      prompts:[],
+      prompts
     }
   },
-  async asyncData(context) {
-    const prompts = await context.app.$axios.$get('api/Prompts');
+  data () {
     return {
-      prompts: prompts
-    };
+      prompts: []
+    }
   }
 }
 </script>
