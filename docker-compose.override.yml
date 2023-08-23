@@ -11,3 +11,10 @@ services:
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+      - ./postgres-data:/var/lib/postgresql/data
+  database:
+    volumes:
+      - key-ai-assistant-data:/var/lib/postgresql/data
+
+volumes:
+  key-ai-assistant-data:
