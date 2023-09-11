@@ -6,7 +6,7 @@
 import EditConversation from '@/components/conversations/EditConversation.vue'
 
 export default {
-  name: 'ConversationPage',
+  name: 'NewConversationPage',
   components: {
     EditConversation
   },
